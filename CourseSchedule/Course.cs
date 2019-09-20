@@ -15,7 +15,7 @@ namespace CourseSchedule
         /// first or second, or .... etc course.
         /// </summary>
         public string CourseNumber { get; private set; }
-        public int CourseSize { get; private set; }
+        public int CourseEnrollment { get; private set; }
         public bool IsSectioned { get; private set; }
         public int SectionNumber { get; private set; }
 
@@ -25,8 +25,9 @@ namespace CourseSchedule
         public Course()
         {
             CourseNumber = "";
-            CourseSize = 0;
+            CourseEnrollment = 0;
             IsSectioned = false;
+            SectionNumber = 0;
         }
 
 
@@ -35,14 +36,45 @@ namespace CourseSchedule
         /// values.
         /// </summary>
         /// <param name="courseNumber"></param>
-        /// <param name="courseSize"></param>
+        /// <param name="courseEnrollment"></param>
         /// <param name="isSectioned"></param>
-        public Course(string courseNumber, int courseSize, bool isSectioned)
+        public Course(string courseNumber, int courseEnrollment, bool isSectioned)
         {
             CourseNumber = courseNumber;
-            CourseSize = courseSize;
+            CourseEnrollment = courseEnrollment;
             IsSectioned = isSectioned;
 
+        }
+
+        /// <summary>
+        /// If a course doesn't have the required information in the right format,
+        /// then this will process a string of all the information into a Course
+        /// Object.
+        /// </summary>
+        /// <param name="courseInformation"></param>
+        public void GrabCourse(string courseInformation)
+        {
+            string courseNum = "";
+            foreach(char c in courseInformation)
+            {
+                if (!(c.Equals(' ')))
+                {
+                    if (c.Equals('A'))
+                    {
+                        IsSectioned = true;
+                        SectionNumber = 1;
+                    }
+                    else if (c.Equals('B'))
+                    {
+                        IsSectioned = true;
+                        SectionNumber = 2;
+                    }
+                    else
+                    {
+                        courseNum.Insert(courseNum.Length, c.ToString());
+                    }
+                }
+            }
         }
     }
 }
