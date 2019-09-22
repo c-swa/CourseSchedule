@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Copyright(c) Christopher Aram Swayne
+
+using System;
 
 namespace CourseSchedule
 {

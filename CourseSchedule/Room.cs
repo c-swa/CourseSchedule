@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Copyright(c) Christopher Aram Swayne
+
+using System;
+
 namespace CourseSchedule
 {
     public class Room
@@ -20,6 +23,7 @@ namespace CourseSchedule
             Building = building;
             Capacity = capacity;
             Number = number;
+            Console.WriteLine("Created Room:" + Building + Number + "(" + Capacity + ")");
         }
 
         public Room()

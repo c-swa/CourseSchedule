@@ -36,6 +36,7 @@
     <Compile Include="Course.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="Schedule.cs" />
+    <Compile Include="ISchedule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CourseList.txt" />

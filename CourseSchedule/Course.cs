@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Copyright(c) Christopher Aram Swayne
+
+using System;
 namespace CourseSchedule
 {
     public class Course
@@ -57,7 +59,7 @@ namespace CourseSchedule
             string courseNum = "";
             foreach(char c in courseInformation)
             {
-                if (!(c.Equals(' ')))
+                if (!c.Equals(' ')))
                 {
                     if (c.Equals('A'))
                     {
@@ -75,6 +77,24 @@ namespace CourseSchedule
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// ToString overridden to allow for easy readability of the Course
+        /// represented by a string.
+        /// </summary>
+        /// <returns>String representation of the course for user view.</returns>
+        public override string ToString()
+        {
+            string temp;
+            if (IsSectioned)
+            {
+                temp = CourseNumber + SectionNumber.ToString();
+            } else {
+                temp = CourseNumber;
+            }
+
+            return temp;
         }
     }
 }
